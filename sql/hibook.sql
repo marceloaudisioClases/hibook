@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2023 a las 14:09:29
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 7.4.27
+-- Tiempo de generación: 10-10-2023 a las 20:57:13
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,8 +31,9 @@ CREATE TABLE `comments` (
   `comment_id` bigint(20) UNSIGNED NOT NULL,
   `rate_id` bigint(20) UNSIGNED NOT NULL,
   `text` text NOT NULL,
-  `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `state` tinyint(4) NOT NULL DEFAULT 1,
+  `date` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -45,7 +46,7 @@ CREATE TABLE `profiles` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `text` text NOT NULL,
   `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -61,7 +62,7 @@ CREATE TABLE `rates` (
   `rater_id` int(10) UNSIGNED NOT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp(),
   `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,7 @@ CREATE TABLE `roles` (
   `name` text NOT NULL,
   `is_default` tinyint(4) NOT NULL DEFAULT 0,
   `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -89,7 +90,7 @@ CREATE TABLE `stats` (
   `icon` text NOT NULL,
   `description` text NOT NULL,
   `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -107,7 +108,7 @@ CREATE TABLE `users` (
   `rol_id` tinyint(4) NOT NULL,
   `state` tinyint(4) NOT NULL DEFAULT 1,
   `avatar` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
