@@ -45,6 +45,20 @@ class usuarios_model extends CI_Model{
     }
     
 
+    public function check_login($usuario= "", $password= ""){
+        $this->db->select($this->pk);
+        $this->db->where("user", $usuario);
+        $this->db->where("password", $password);
+        $this->db->limit(1);
+        $res= $this->db->get($this->table);
+        if ($res->num_rows()){
+            $id= $res->row_array();
+            return $this->get_user_by_id($id[$this->pk]);
+        } else {
+            return false;
+        }
+    }
+
 }
 
 ?>
