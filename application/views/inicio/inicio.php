@@ -115,7 +115,17 @@
                         <div class="col-6">
                             <div class="card">
                                 <div class="card-body" style="height: 10rem">
-                                    <h1>Nombre de usuario</h1>
+                                    <h1 class="card-title">Nombre de usuario</h1>
+                                    <h5>Estadisticas</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Caracteristica 1 
+                                            <div class="align-items-right">
+                                            <span>*****</span>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">Caracteristica 2</li>
+                                        <li class="list-group-item">Caracteristica 3</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
