@@ -1,6 +1,6 @@
 <?php
 
-class usuarios_model extends CI_Model{
+class user_model extends CI_Model{
 
     protected $table= "users";
     protected $pk= "user_id";
@@ -11,7 +11,7 @@ class usuarios_model extends CI_Model{
 
     public function default_join(){
         $this->db->join("roles", $this->table.".rol_id= roles.rol_id", "inner");
-        $this->db->join("profiles", $this->table.".".$this->pk"= profile.user_id", "left");
+        $this->db->join("profiles", $this->table.".".$this->pk."= profiles.user_id", "left");
     }
 
     public function create_user($data) {
@@ -28,7 +28,7 @@ class usuarios_model extends CI_Model{
     public function get_user_by_id($user_id) {
         $this->default_select();
         $this->default_join();
-        $this->db->where($this->pk, $user_id);
+        $this->db->where($this->table.".".$this->pk, $user_id);
         return $this->db->get($this->table)->row_array();
     }
     
