@@ -39,8 +39,6 @@
                 </form>
             </div>
         </div>
-        <div class="text-center text-muted mt-3">
-            No tienen una cuenta? <a href="./sign-up.html" tabindex="-1">Crear una cuenta</a>
-        </div>
+        
     </div>
 </div>
