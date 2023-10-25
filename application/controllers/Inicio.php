@@ -18,4 +18,11 @@ class Inicio extends CI_Controller {
 		$this->load->section('navbar', 'navbar');
         $this->load->view('inicio/inicio');
     }
+
+	public function buscarPorNombre() {
+		$nombre = $this->input->post('nombre');
+		$this->load->model('usuarios_model'); // Reemplaza 'TuModelo' con el nombre de tu modelo
+		$data['registros'] = $this->usuarios_model->listar_por_nombre($nombre);
+		$this->load->view('Inicio', $data);
+	}
 }
