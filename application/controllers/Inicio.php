@@ -8,6 +8,7 @@ class Inicio extends CI_Controller {
 		parent::__construct();
 		$this->output->set_template('default');
 		$this->output->set_title('HiBook');
+		$this->load->model('usuarios_model');
 	}
 
 	public function index()
@@ -23,7 +24,6 @@ class Inicio extends CI_Controller {
 
 	public function buscarPorNombre() {
 		$nombre = $this->input->post('nombre');
-		$this->load->model('usuarios_model'); // Reemplaza 'TuModelo' con el nombre de tu modelo
 		$data['registros'] = $this->usuarios_model->listar_por_nombre($nombre);
 		$this->load->view('Inicio', $data);
 	}
