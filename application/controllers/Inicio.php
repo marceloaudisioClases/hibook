@@ -7,6 +7,7 @@ class Inicio extends CI_Controller {
 	{
 		parent::__construct();
 		$this->output->set_template('default');
+		$this->output->set_title('HiBook');
 	}
 
 	public function index()
