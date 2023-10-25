@@ -66,7 +66,6 @@ class usuarios_model extends CI_Model{
         if ($nombre) {
             $this->db->like('user', $nombre);
         }
-
         return $this->db->get($this->table)->result_array();
     }
 

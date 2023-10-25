@@ -10,7 +10,7 @@
                         <!-- Cuadro de busqueda -->                    
                             <div class="card">
                                 <div class="card-body">
-                                    <form method="post" action="<?php echo site_url('Inicio/buscarPorNombre'); ?>" >
+                                    <form method="post" action="<?php echo site_url('inicio/buscar_por_nombre'); ?>" >
                                         <div class="mb-3">
                                             <label for="nombre" class="form-label">Buscar</label>
                                             <div class="row g-2">
@@ -50,11 +50,11 @@
                                     -->
 
                                     <!-- Resultados v2 -->
-                                    <div id="resultados" class="mb-3" style="display: none;">
+                                    <div id="resultados" class="mb-3">
                                         <h4>Resultados</h4>
                                         <ul class="list-group">
-                                            <?php foreach ($registros as $registro) : ?>
-                                                <li class="list-group-item"><?php echo $registro['user']; ?></li>
+                                            <?php foreach ($registros as $d) : ?>
+                                                <li class="list-group-item"><?php echo $d['name'];  ?></li>                                                
                                             <?php endforeach; ?>
                                         </ul>
                                     </div>
