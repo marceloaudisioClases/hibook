@@ -17,6 +17,7 @@ class Inicio extends CI_Controller {
 
     public function main(){
 		$this->load->section('navbar', 'navbar');
+		$data['registros'] = $this->usuarios_model->listar();		
         $this->load->view('inicio/inicio');
     }
 
