@@ -90,33 +90,6 @@
     </div>
 </div>
 
-<script>
-    // Script JavaScript para realizar la búsqueda con clic en el botón "Buscar"
-    document.querySelector('form').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const resultadosElement = document.getElementById('resultados');
-
-        fetch(this.getAttribute('action'), {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            resultadosElement.style.display = 'block';
-            resultadosElement.innerHTML = '';
-            data.forEach(usuario => {
-                const li = document.createElement('li');
-                li.className = 'list-group-item';
-                li.textContent = usuario.nombre;
-                resultadosElement.appendChild(li);
-            });
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    });
-</script>
 
 </body>
 
