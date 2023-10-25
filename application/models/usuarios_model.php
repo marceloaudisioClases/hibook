@@ -58,6 +58,17 @@ class usuarios_model extends CI_Model{
             return false;
         }
     }
+    
+    public function listar_por_nombre($nombre =null){
+        $this->default_select();
+        $this->default_join();
+
+        if ($nombre) {
+            $this->db->like('user', $nombre);
+        }
+
+        return $this->db->get($this->table)->result_array();
+    }
 
     public function listar_por_nombre($nombre =null){
         $this->default_select();
