@@ -1,11 +1,13 @@
 <h1>Proyecto HiBook</h1>
 
 HiBook es una aplicación de evaluación de pares creada por los alumnos de tercer año 2023 de la carrera Analista de Sistemas del instituto Argentino de la empresa(HILET). <br>
+ClickUp del proyecto: https://app.clickup.com/9011121076/v/l/8chnjxm-31
 
 <h3>Estandar de codeo</h3>
 <hr>
-No hacer push directo hacia las ramas main y dev. Las actualizaciones se envian a alguna de las ramificaciones que empiecen con el nombre *"feat"*.
+No hacer push directo hacia las ramas main y dev. Las actualizaciones se envian a alguna de las ramificaciones que empiecen con el nombre "feat".
 Todos los nombres de métodos y variables son en español, salvo métodos base de los modelos (default_join, default_select)
+Consultar en qué rama hacer push en las tareas del ClickUp del proyecto.
 
 
 <h3>Vistas --> application/views</h3>
