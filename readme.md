@@ -1,6 +1,6 @@
 <h1>Proyecto HiBook</h1>
 
-HiBook es una aplicación de evaluación de pares creada por los alumnos de tercer año 2023 de la carrera Analista de Sistemas. <br>
+HiBook es una aplicación de evaluación de pares creada por los alumnos de tercer año 2023 de la carrera Analista de Sistemas del instituto Argentino de la empresa(HILET). <br>
 
 <h3>Estandar de codeo</h3>
 <hr>
