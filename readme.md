@@ -51,8 +51,8 @@ Métodos mínimos de un modelo:
 <h3>Herramientas utilizadas en el sistema</h3>
 <hr>
 
-PHP version 7.4 --> https://www.php.net/manual/es/intro-whatis.php
-Codeigniter 3 --> https://codeigniter.com/userguide3/general/welcome.html
-Bootstrap 4.6 --> https://getbootstrap.com/docs/4.6/getting-started/introduction/
+PHP version 7.4 --> https://www.php.net/manual/es/intro-whatis.php <br>
+Codeigniter 3 --> https://codeigniter.com/userguide3/general/welcome.html <br>
+Bootstrap 4.6 --> https://getbootstrap.com/docs/4.6/getting-started/introduction/ <br>
 Tabler.io --> https://tabler.io/
 
