@@ -26,7 +26,7 @@
                                 <a href="./forgot-password.html">Olvide mi contraseña</a>
                             </span>
                         </label>
-                        <input name="password" type="password"
+                        <input name="contraseña" type="contraseña"
                             class="form-control <?php echo (form_error('password')) ? "is-invalid" : ""; ?>"
                             placeholder="Tu contraseña" autocomplete="off">
 

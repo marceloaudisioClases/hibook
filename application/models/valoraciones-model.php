@@ -2,15 +2,15 @@
 
 class puntuaciones_model extends CI_Model{
 
-    protected $table= "rates";
-    protected $pk= "rate_id";
+    protected $table= "valoraciones";
+    protected $pk= "valoracion_id";
 
     public function default_select(){
         $this->db->select($this->table.".*");
     }
 
     public function default_join(){
-        $this->db->join("comments", $this->table.".".$this->pk."= comments.rate_id", "left");
+        $this->db->join("comentarios", $this->table.".".$this->pk."= comentarios.valoracion_id", "left");
     }
 
     public function crear($data) {
