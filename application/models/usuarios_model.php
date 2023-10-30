@@ -53,7 +53,7 @@ class usuarios_model extends CI_Model{
         $res= $this->db->get($this->table);
         if ($res->num_rows()){
             $id= $res->row_array();
-            return $this->get_user_by_id($id[$this->pk]);
+            return $this->obtener_por_id($id[$this->pk]);
         } else {
             return false;
         }

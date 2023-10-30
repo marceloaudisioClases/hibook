@@ -2,17 +2,23 @@
     <div class="container-xl">
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <!-- Logo -->
-            <a href="#">
-                <img src="https://preview.tabler.io/static/logo.svg" width="110" height="32" alt="Tabler"
-                    class="navbar-brand-image" />
+            <a href="<?= base_url(); ?>">
+                <img src="<?= base_url('assets/HiBook-logo - cortoo.png'); ?>" 
+                    alt="Logo"
+                    width="110" height="90"
+                />
+                <img src="<?= base_url('assets/HiBook.png'); ?>" 
+                    alt="Nombre"
+                    width="100" height="60"
+                />
             </a>
         </h1>
         
         <!-- Botones -->
         <div class="navbar-nav flex-row order-md-last">
             <div class="nav-item">
-                <a href="#" class="nav-link d-flex lh-1 text-reset p-0">
-                    <span class="avatar avatar-sm" style="background-image: url(/samples/avatars/002m.jpg)"></span>
+                <a href="<?= base_url(); ?>" class="nav-link d-flex lh-1 text-reset p-0">
+                    <img src="<?= base_url('uploads/Avatar.png'); ?>" alt="Avatar" style="width: 80px; height: 80px;">
                     <div class="d-none d-xl-block ps-2">
                         <div>Paweł Kuna</div>
                         <div class="mt-1 small text-secondary">UI Designer</div>
