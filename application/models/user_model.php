@@ -1,6 +1,6 @@
 <?php
 
-class usuarios_model extends CI_Model{
+class user_model extends CI_Model{
 
     protected $table= "users";
     protected $pk= "user_id";
@@ -14,38 +14,38 @@ class usuarios_model extends CI_Model{
         $this->db->join("profiles", $this->table.".".$this->pk."= profiles.user_id", "left");
     }
 
-    public function crear($data) {
+    public function create_user($data) {
         $this->db->insert($this->table, $data);
         return $this->db->insert_id();
     }
 
-    public function listar() {
+    public function get_all_users() {
         $this->default_select();
         $this->default_join();
         return $this->db->get($this->table)->result_array();
     }
     
-    public function obtener_por_id($user_id) {
+    public function get_user_by_id($user_id) {
         $this->default_select();
         $this->default_join();
         $this->db->where($this->table.".".$this->pk, $user_id);
         return $this->db->get($this->table)->row_array();
     }
     
-    public function editar($user_id, $data) {
+    public function update_user($user_id, $data) {
         $this->db->where($this->pk, $user_id);
         $this->db->update($this->table, $data);
         return $this->db->affected_rows();
     }
     
-    public function borrar($user_id) {
+    public function delete_user($user_id) {
         $this->db->where($this->pk, $user_id);
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
     
 
-    public function login($usuario= "", $password= ""){
+    public function check_login($usuario= "", $password= ""){
         $this->db->select($this->pk);
         $this->db->where("user", $usuario);
         $this->db->where("password", $password);
@@ -53,20 +53,10 @@ class usuarios_model extends CI_Model{
         $res= $this->db->get($this->table);
         if ($res->num_rows()){
             $id= $res->row_array();
-            return $this->obtener_por_id($id[$this->pk]);
+            return $this->get_user_by_id($id[$this->pk]);
         } else {
             return false;
         }
-    }
-
-    public function listar_por_nombre($nombre =null){
-        $this->default_select();
-        $this->default_join();
-
-        if ($nombre) {
-            $this->db->like('user', $nombre);
-        }
-        return $this->db->get($this->table)->result_array();
     }
 
 }

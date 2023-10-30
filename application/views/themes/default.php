@@ -33,7 +33,6 @@
 	} echo "\n\t";
 	?>
 	<link href="<?php echo base_url(); ?>assets/themes/default/css/custom.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 	<!-- JScript -->
 	<script src="<?php echo base_url(); ?>assets/jquery/jquery-3.7.1.min.js"></script>
 	<script src="<?php echo base_url(); ?>/assets/tabler/js/tabler.min.js?1684106062" defer></script>
