@@ -25,8 +25,12 @@ class Auth extends CI_Controller {
             $this->load->model('usuarios_model');
             $usuario= set_value('usuario');
             $password= set_value('password');
-            if ($u = $this->user_model->login($usuario, $password)){
-                
+            if ($u = $this->usuarios_model->login($usuario, $password)){
+                $this->session->usuario_id= $u["user_id"];
+                $this->session->usuario= $u["user"];
+                $this->session->nombre= $u["name"];
+                $this->session->apellido= $u["surname"];
+                redirect("inicio");
             }
         }
     }
