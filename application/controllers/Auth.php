@@ -30,6 +30,7 @@ class Auth extends CI_Controller {
                 $this->session->usuario= $u["user"];
                 $this->session->nombre= $u["name"];
                 $this->session->apellido= $u["surname"];
+                redirect("inicio");
             }
         }
     }
