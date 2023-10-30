@@ -39,7 +39,7 @@
             return $this->db->get($this->table)->result_array();
        }
 
-       public function obtener_por_id($rol_id){
+       public function obtenerxid($rol_id){
             $this->default_select();
             $this->db->where($this->pk,$rol_id);
             return $this->db->get($this->table)->row_array();

@@ -18,7 +18,6 @@ class user_controller extends CI_Controller {
     public function view($user_id) {
         $data['user'] = $this->user_model->get_user_by_id($user_id);
         $this->load->view('user_view', $data); 
-        $avatar = $data['user']->avatar;
     }
     
     //crea usuario
