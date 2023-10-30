@@ -2,9 +2,16 @@
 
     class caracteristicas_model extends CI_Model
     {
-
         protected $table= "estadisticas";
         protected $pk= "estadistica_id";
+      
+        public function default_select(){ 
+            $this->db->select($this->table.".*");
+        }
+    
+        public function default_join(){ 
+            $this->db->join("comments", $this->table.".".$this->pk."= comments.rate_id", "left");
+        }
 
         public function crear($info) 
         {
@@ -27,12 +34,16 @@
         
         public function obtener_por_id($id) 
         {
+            $this->default_select();
+            $this->default_join();
             $this->db->where($this->pk, $id);
             return $this->db->get($this->table)->row();
         }
 
         public function listar() 
         {
+            $this->default_select();
+            $this->default_join();
             return $this->db->get($this->table)->result();
         }
     }
