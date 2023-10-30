@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2023 a las 03:29:50
+-- Tiempo de generación: 31-10-2023 a las 00:50:32
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 7.4.33
 
@@ -94,6 +94,19 @@ CREATE TABLE `usuarios` (
   `avatar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`usuario_id`, `usuario`, `nombre`, `apellido`, `email`, `contraseña`, `rol_id`, `estado`, `avatar`) VALUES
+(1, 'matias', 'Matias', 'Lupo', 'matiezelupo@gmail.com', '1234', 1, 1, ''),
+(2, 'agus', 'Agustin', 'Luparini', 'agus@gmail.com', '1234', 1, 1, ''),
+(3, 'ivan', 'Ivan', 'Valeff', 'ivaleff@gmail.com', '1234', 1, 1, ''),
+(4, 'ezequiel', 'Ezequiel', 'De La Fuente', 'ezequieldlf@gmail.com', '1234', 1, 1, ''),
+(5, 'franco', 'Franco', 'Spatocco', 'fspatocco@gmail.com', '1234', 1, 1, ''),
+(6, 'belu', 'Belen', 'Giri', 'belen@gmail.com', '1234', 1, 1, ''),
+(7, 'abril', 'Abril', 'Aladro', 'abril@gmail.com', '1234', 1, 1, '');
+
 -- --------------------------------------------------------
 
 --
@@ -170,7 +183,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `valoraciones`
