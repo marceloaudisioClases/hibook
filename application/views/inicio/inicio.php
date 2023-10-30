@@ -7,6 +7,7 @@
                     <div class="col-4 offset-1">
 
 
+
                         <!-- Cuadro de busqueda -->
                         <div class="card">
                             <div class="card-body">
@@ -31,7 +32,6 @@
                                                 </button>
                                             </div>
                                         </div>
-                                    </div>
                                 </form>
 
                                 <!-- Resultados v2 -->

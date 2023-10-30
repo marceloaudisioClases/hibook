@@ -2,8 +2,8 @@
 
 class usuarios_model extends CI_Model{
 
-    protected $table= "users";
-    protected $pk= "user_id";
+    protected $table= "usuarios";
+    protected $pk= "usuario_id";
 
     public function default_select(){
         $this->db->select($this->table.".*");
@@ -11,7 +11,7 @@ class usuarios_model extends CI_Model{
 
     public function default_join(){
         $this->db->join("roles", $this->table.".rol_id= roles.rol_id", "inner");
-        $this->db->join("profiles", $this->table.".".$this->pk."= profiles.user_id", "left");
+        $this->db->join("perfiles", $this->table.".".$this->pk."= perfiles.usuario_id", "left");
     }
 
     public function crear($data) {
@@ -45,10 +45,10 @@ class usuarios_model extends CI_Model{
     }
     
 
-    public function login($usuario= "", $password= ""){
+    public function login($usuario= "", $contraseña= ""){
         $this->db->select($this->pk);
-        $this->db->where("user", $usuario);
-        $this->db->where("password", $password);
+        $this->db->where("usuario", $usuario);
+        $this->db->where("contraseña", $contraseña);
         $this->db->limit(1);
         $res= $this->db->get($this->table);
         if ($res->num_rows()){
@@ -64,7 +64,7 @@ class usuarios_model extends CI_Model{
         $this->default_join();
 
         if ($nombre) {
-            $this->db->like('user', $nombre);
+            $this->db->like('usuario', $nombre);
         }
         return $this->db->get($this->table)->result_array();
     }

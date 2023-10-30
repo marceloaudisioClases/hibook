@@ -20,8 +20,7 @@
                 <a href="<?= base_url(); ?>" class="nav-link d-flex lh-1 text-reset p-0">
                     <img src="<?= base_url('uploads/Avatar.png'); ?>" alt="Avatar" style="width: 80px; height: 80px;">
                     <div class="d-none d-xl-block ps-2">
-                        <div>Paweł Kuna</div>
-                        <div class="mt-1 small text-secondary">UI Designer</div>
+                        <?php if (isset($_SESSION["usuario"])){ ?><div> <?php echo $_SESSION["usuario"]; ?> </div> <?php }?>
                     </div>
                 </a>
             </div>
