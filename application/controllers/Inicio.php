@@ -7,7 +7,7 @@ class Inicio extends CI_Controller {
 	{
 		parent::__construct();
 		$this->output->set_template('default');
-		$this->output->set_title('HiBook');
+		$this->output->set_title('HiBook');			
 		$this->load->model('usuarios_model');
 	}
 
@@ -17,8 +17,10 @@ class Inicio extends CI_Controller {
 	}
 
     public function main(){
-		$this->load->section('navbar', 'navbar');		
+		$this->load->section('navbar', 'navbar');	
 		$data['registros'] = $this->usuarios_model->listar();
+		if (isset($_SESSION['apellido']) && isset($_SESSION['nombre']))
+			$data['nombre_completo']= $_SESSION['apellido'] . ' ' . $_SESSION['nombre'];
         $this->load->view('inicio/inicio', $data);
     }
 
