@@ -3,8 +3,8 @@
     class caracteristicas_model extends CI_Model
     {
 
-        protected $table= "stats";
-        protected $pk= "stat_id";
+        protected $table= "estadisticas";
+        protected $pk= "estadistica_id";
 
         public function crear($info) 
         {
