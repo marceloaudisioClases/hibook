@@ -32,6 +32,7 @@
                                                 </button>
                                             </div>
                                         </div>
+                                    </div>
                                 </form>
 
                                 <!-- Resultados v2 -->
