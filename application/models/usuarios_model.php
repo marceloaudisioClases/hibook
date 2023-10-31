@@ -55,7 +55,7 @@ class usuarios_model extends CI_Model{
             $id= $res->row_array();
             return $this->obtener_por_id($id[$this->pk]);
         } else {
-            return false;
+            return $this->db->error();
         }
     }
 

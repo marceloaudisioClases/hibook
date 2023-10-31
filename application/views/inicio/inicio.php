@@ -39,7 +39,7 @@
                                     <h4>Resultados</h4>
                                     <ul class="list-group">
                                         <?php foreach ($registros as $d) : ?>
-                                        <li class="list-group-item"><?php echo $d['name'];  ?></li>
+                                        <li class="list-group-item"><?php echo $d['nombre'];  ?></li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
