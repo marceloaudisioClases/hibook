@@ -1,7 +1,7 @@
 <div class="page page-center">
     <div class="container container-tight py-4">
         <div class="text-center mb-4">
-            <a href="#" class="navbar-brand navbar-brand-autodark"><img src="<?php echo base_url('assets/HiBook-logo.jpg') ?>" height="36"
+            <a href="#" class="navbar-brand navbar-brand-autodark"><img src="<?php echo base_url('assets/logo hibook todo.png') ?>" height="125"
                     alt="Hibook"></a>
         </div>
         <div class="card card-md">
