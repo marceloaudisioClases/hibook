@@ -25,6 +25,7 @@ class Inicio extends CI_Controller {
     }
 
 	public function buscar_por_nombre() {
+		$this->load->section('navbar', 'navbar');
 		$nombre = $this->input->post('nombre');
 		$data['registros'] = $this->usuarios_model->listar_por_nombre($nombre);
 		$this->load->view('inicio/inicio', $data);
