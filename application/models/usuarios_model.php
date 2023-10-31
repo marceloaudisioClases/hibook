@@ -45,10 +45,10 @@ class usuarios_model extends CI_Model{
     }
     
 
-    public function login($usuario= "", $contraseña= ""){
+    public function login($usuario= "", $password= ""){
         $this->db->select($this->pk);
         $this->db->where("usuario", $usuario);
-        $this->db->where("contraseña", $contraseña);
+        $this->db->where("password", $password);
         $this->db->limit(1);
         $res= $this->db->get($this->table);
         if ($res->num_rows()){

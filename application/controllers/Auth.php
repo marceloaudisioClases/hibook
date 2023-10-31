@@ -26,11 +26,14 @@ class Auth extends CI_Controller {
             $usuario= set_value('usuario');
             $password= set_value('password');
             if ($u = $this->usuarios_model->login($usuario, $password)){
-                $this->session->usuario_id= $u["user_id"];
-                $this->session->usuario= $u["user"];
-                $this->session->nombre= $u["name"];
-                $this->session->apellido= $u["surname"];
+                $this->session->usuario_id= $u["usuario_id"];
+                $this->session->usuario= $u["usuario"];
+                $this->session->nombre= $u["nombre"];
+                $this->session->apellido= $u["apellido"];
                 redirect("inicio");
+            }
+            else {
+                $this->load->view("login/login");
             }
         }
     }

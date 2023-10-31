@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2023 a las 00:50:32
+-- Tiempo de generación: 31-10-2023 a las 01:15:23
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 7.4.33
 
@@ -88,7 +88,7 @@ CREATE TABLE `usuarios` (
   `nombre` text NOT NULL,
   `apellido` text NOT NULL,
   `email` text NOT NULL,
-  `contraseña` text NOT NULL,
+  `password` text NOT NULL,
   `rol_id` tinyint(4) NOT NULL,
   `estado` tinyint(4) NOT NULL DEFAULT 1,
   `avatar` text NOT NULL
@@ -98,7 +98,7 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`usuario_id`, `usuario`, `nombre`, `apellido`, `email`, `contraseña`, `rol_id`, `estado`, `avatar`) VALUES
+INSERT INTO `usuarios` (`usuario_id`, `usuario`, `nombre`, `apellido`, `email`, `password`, `rol_id`, `estado`, `avatar`) VALUES
 (1, 'matias', 'Matias', 'Lupo', 'matiezelupo@gmail.com', '1234', 1, 1, ''),
 (2, 'agus', 'Agustin', 'Luparini', 'agus@gmail.com', '1234', 1, 1, ''),
 (3, 'ivan', 'Ivan', 'Valeff', 'ivaleff@gmail.com', '1234', 1, 1, ''),
