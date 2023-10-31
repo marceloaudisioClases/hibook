@@ -3,11 +3,11 @@
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             <!-- Logo -->
             <a href="<?= base_url(); ?>">
-                <img src="<?= base_url('assets/HiBook-logo - cortoo.png'); ?>" 
+                <img src="<?= base_url('assets/logo hibook solo.png'); ?>" 
                     alt="Logo"
                     width="110" height="90"
                 />
-                <img src="<?= base_url('assets/HiBook.png'); ?>" 
+                <img src="<?= base_url('assets/logo hibook fuente.png'); ?>" 
                     alt="Nombre"
                     width="100" height="60"
                 />
