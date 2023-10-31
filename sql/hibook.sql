@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-10-2023 a las 20:57:13
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 7.4.33
+-- Tiempo de generación: 31-10-2023 a las 12:21:31
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,45 +24,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comments`
+-- Estructura de tabla para la tabla `comentarios`
 --
 
-CREATE TABLE `comments` (
-  `comment_id` bigint(20) UNSIGNED NOT NULL,
-  `rate_id` bigint(20) UNSIGNED NOT NULL,
-  `text` text NOT NULL,
-  `state` tinyint(4) NOT NULL DEFAULT 1,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `comentarios` (
+  `comentario_id` bigint(20) UNSIGNED NOT NULL,
+  `valoracion_id` bigint(20) UNSIGNED NOT NULL,
+  `detalles` text NOT NULL,
+  `estado` tinyint(4) NOT NULL DEFAULT 1,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `profiles`
+-- Estructura de tabla para la tabla `estadisticas`
 --
 
-CREATE TABLE `profiles` (
-  `profile_id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `text` text NOT NULL,
-  `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `estadisticas` (
+  `estadistica_id` int(11) NOT NULL,
+  `nombre` text NOT NULL,
+  `color` text NOT NULL,
+  `icono` text NOT NULL,
+  `descripcion` text NOT NULL,
+  `estado` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rates`
+-- Estructura de tabla para la tabla `perfiles`
 --
 
-CREATE TABLE `rates` (
-  `rate_id` bigint(20) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `stat_id` int(11) NOT NULL,
-  `rate` tinyint(4) NOT NULL,
-  `rater_id` int(10) UNSIGNED NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp(),
-  `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+CREATE TABLE `perfiles` (
+  `perfil_id` int(10) UNSIGNED NOT NULL,
+  `usuario_id` int(10) UNSIGNED NOT NULL,
+  `detalles` text NOT NULL,
+  `estado` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -72,59 +71,80 @@ CREATE TABLE `rates` (
 
 CREATE TABLE `roles` (
   `rol_id` tinyint(4) NOT NULL,
-  `name` text NOT NULL,
-  `is_default` tinyint(4) NOT NULL DEFAULT 0,
-  `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `nombre` text NOT NULL,
+  `predeterminado` tinyint(4) NOT NULL DEFAULT 0,
+  `estado` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `roles`
+--
+
+INSERT INTO `roles` (`rol_id`, `nombre`, `predeterminado`, `estado`) VALUES
+(1, 'usuarios', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `stats`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-CREATE TABLE `stats` (
-  `stat_id` int(11) NOT NULL,
-  `name` text NOT NULL,
-  `color` text NOT NULL,
-  `icon` text NOT NULL,
-  `description` text NOT NULL,
-  `state` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `users`
---
-
-CREATE TABLE `users` (
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `user` text NOT NULL,
-  `name` text NOT NULL,
-  `surname` text NOT NULL,
+CREATE TABLE `usuarios` (
+  `usuario_id` int(10) UNSIGNED NOT NULL,
+  `usuario` text NOT NULL,
+  `nombre` text NOT NULL,
+  `apellido` text NOT NULL,
   `email` text NOT NULL,
   `password` text NOT NULL,
   `rol_id` tinyint(4) NOT NULL,
-  `state` tinyint(4) NOT NULL DEFAULT 1,
+  `estado` tinyint(4) NOT NULL DEFAULT 1,
   `avatar` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`usuario_id`, `usuario`, `nombre`, `apellido`, `email`, `password`, `rol_id`, `estado`, `avatar`) VALUES
+(1, 'matias', 'Matias', 'Lupo', 'matiezelupo@gmail.com', '1234', 1, 1, ''),
+(2, 'agus', 'Agustin', 'Luparini', 'agus@gmail.com', '1234', 1, 1, ''),
+(3, 'ivan', 'Ivan', 'Valeff', 'ivaleff@gmail.com', '1234', 1, 1, ''),
+(4, 'ezequiel', 'Ezequiel', 'De La Fuente', 'ezequieldlf@gmail.com', '1234', 1, 1, ''),
+(5, 'franco', 'Franco', 'Spatocco', 'fspatocco@gmail.com', '1234', 1, 1, ''),
+(6, 'belu', 'Belen', 'Giri', 'belen@gmail.com', '1234', 1, 1, ''),
+(7, 'abril', 'Abril', 'Aladro', 'abril@gmail.com', '1234', 1, 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `valoraciones`
+--
+
+CREATE TABLE `valoraciones` (
+  `valoracion_id` bigint(20) UNSIGNED NOT NULL,
+  `usuario_id` int(10) UNSIGNED NOT NULL,
+  `estadistica_id` int(11) NOT NULL,
+  `valoracion` tinyint(4) NOT NULL,
+  `valorador_id` int(10) UNSIGNED NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `estado` tinyint(4) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `profiles`
+-- Indices de la tabla `estadisticas`
 --
-ALTER TABLE `profiles`
-  ADD PRIMARY KEY (`profile_id`);
+ALTER TABLE `estadisticas`
+  ADD PRIMARY KEY (`estadistica_id`);
 
 --
--- Indices de la tabla `rates`
+-- Indices de la tabla `perfiles`
 --
-ALTER TABLE `rates`
-  ADD PRIMARY KEY (`rate_id`);
+ALTER TABLE `perfiles`
+  ADD PRIMARY KEY (`perfil_id`);
 
 --
 -- Indices de la tabla `roles`
@@ -133,50 +153,50 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`rol_id`);
 
 --
--- Indices de la tabla `stats`
+-- Indices de la tabla `usuarios`
 --
-ALTER TABLE `stats`
-  ADD PRIMARY KEY (`stat_id`);
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`usuario_id`);
 
 --
--- Indices de la tabla `users`
+-- Indices de la tabla `valoraciones`
 --
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
+ALTER TABLE `valoraciones`
+  ADD PRIMARY KEY (`valoracion_id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `profiles`
+-- AUTO_INCREMENT de la tabla `estadisticas`
 --
-ALTER TABLE `profiles`
-  MODIFY `profile_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `estadisticas`
+  MODIFY `estadistica_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de la tabla `rates`
+-- AUTO_INCREMENT de la tabla `perfiles`
 --
-ALTER TABLE `rates`
-  MODIFY `rate_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `perfiles`
+  MODIFY `perfil_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `rol_id` tinyint(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `rol_id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de la tabla `stats`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
-ALTER TABLE `stats`
-  MODIFY `stat_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `usuarios`
+  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de la tabla `users`
+-- AUTO_INCREMENT de la tabla `valoraciones`
 --
-ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE `valoraciones`
+  MODIFY `valoracion_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

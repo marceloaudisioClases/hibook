@@ -19,14 +19,21 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules("usuario", "Usuario", "required|trim|strtolower"); //name del form, Como se muestra a los humanos, condiciones separadas por |
         $this->form_validation->set_rules("password", "Contraseña", "required");
         if ($this->form_validation->run() === false){            
-            $this->load->view("login");
+            $this->load->view("login/login");
         }
         else {
-            $this->load->model('user_model');
+            $this->load->model('usuarios_model');
             $usuario= set_value('usuario');
             $password= set_value('password');
-            if ($u = $this->user_model->check_login($usuario, $password)){
-                
+            if ($u = $this->usuarios_model->login($usuario, $password)){
+                $this->session->usuario_id= $u["usuario_id"];
+                $this->session->usuario= $u["usuario"];
+                $this->session->nombre= $u["nombre"];
+                $this->session->apellido= $u["apellido"];
+                redirect("inicio");
+            }
+            else {
+                $this->load->view("login/login");
             }
         }
     }

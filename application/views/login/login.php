@@ -1,16 +1,15 @@
 <div class="page page-center">
     <div class="container container-tight py-4">
         <div class="text-center mb-4">
-            <a href="#" class="navbar-brand navbar-brand-autodark">
-                <img src="<?php echo base_url('assets/HiBook-logo.jpg') ?>" height="200" alt="Hibook">
-            </a>
+            <a href="#" class="navbar-brand navbar-brand-autodark"><img src="<?php echo base_url('assets/logo hibook todo.png') ?>" height="125"
+                    alt="Hibook"></a>
         </div>
         <div class="card card-md">
             <div class="card-body">
                 <h2 class="h2 text-center mb-4">Inicia sesión con tu cuenta</h2>
                 <form action="<?php echo site_url('auth/ingresar'); ?>" method="post" autocomplete="off" novalidate>
                     <div class="mb-3">
-
+                        <?php if (isset($message)) { echo $message;} ?>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Usuario</label>
@@ -40,8 +39,6 @@
                 </form>
             </div>
         </div>
-        <div class="text-center text-muted mt-3">
-            No tienen una cuenta? <a href="./sign-up.html" tabindex="-1">Crear una cuenta</a>
-        </div>
+        
     </div>
 </div>
