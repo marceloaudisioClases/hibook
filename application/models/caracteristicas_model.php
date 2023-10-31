@@ -11,7 +11,7 @@
     
         public function default_join(){ 
             $this->db->join("comments", $this->table.".".$this->pk."= comments.rate_id", "left");
-        }
+        }       
 
         public function crear($info) 
         {
@@ -46,6 +46,8 @@
             $this->default_join();
             return $this->db->get($this->table)->result();
         }
+
+        
     }
 
 ?>
