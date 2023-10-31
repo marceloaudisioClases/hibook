@@ -26,5 +26,4 @@ class UsuarioApi extends REST_Controller{
     }
 }
 
-
 ?>
