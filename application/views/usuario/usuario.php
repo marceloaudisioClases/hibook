@@ -43,7 +43,7 @@
                     <div class="col-5">
                         <div class="card">
                             <div class="card-body" style="height: 10rem">
-                                <p class="card-title">Novedades de "Nombre de Usuario"</p>
+                                <p class="card-title">Novedades de: <?php echo $usuario["nombre"]; ?></p>
                             </div>
                         </div>
                     </div>
