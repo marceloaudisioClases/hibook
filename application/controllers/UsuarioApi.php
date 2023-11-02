@@ -1,9 +1,11 @@
 <?php
 
+//Direccion para acceder a esta endpoint es http://localhost/hibook/index.php/UsuarioApi/index_get?email=agus@gmail.com
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 
-class UsuarioApi extends REST_Controller{
+class UsuarioApi extends CI_Controller{
 
     public function __construct()
     {
@@ -13,17 +15,19 @@ class UsuarioApi extends REST_Controller{
         $this->load->model('usuarios_model');             
     }
 
-    public function index_post()
+    public function index_get()
     {
-        $email = $this->input->post('email');
+        $email = $this->input->get('email');
         $rsp = $this->usuarios_model->traer_stats_email($email);
 
         if($rsp) {
-           return json_encode($rsp)
+            $this->output
+            ->set_output(json_encode($rsp));
         } else {
             return $this->load->view("errors/html/error_404");            
         }              
     }
+
 }
 
 ?>
