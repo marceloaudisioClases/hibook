@@ -33,7 +33,8 @@ class Auth extends CI_Controller {
                 redirect("inicio");
             }
             else {
-                $this->load->view("login/login");
+                $this->output->enable_profiler(true);
+                //$this->load->view("login/login");
             }
         }
     }
