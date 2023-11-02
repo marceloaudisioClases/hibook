@@ -5,10 +5,31 @@ ClickUp del proyecto: https://app.clickup.com/9011121076/v/l/8chnjxm-31
 
 <h3>Estandar de codeo</h3>
 <hr>
-No hacer push directo hacia las ramas main y dev. Las actualizaciones se envian a alguna de las ramificaciones que empiecen con el nombre "feat".
+No hacer push directo hacia las ramas main y dev, ni pull request hacia main. Las actualizaciones se envian a alguna de las ramificaciones que empiecen con el nombre "feat".
 Todos los nombres de métodos y variables son en español, salvo métodos base de los modelos (default_join, default_select)
 Consultar en qué rama hacer push en las tareas del ClickUp del proyecto.
 
+Si quieren trabajar en características cortas y puntuales pueden hacer ramificaciones partiendo de la rama en la que están trabajano de la siguiente forma:
+<ol>
+	<li>Seleccionar la rama en la que están trabajando</li>
+	<li>Ir de nuevo al botón de seleccionar rama y hacer click</li>
+	<li>Escribir en el buscador el nombre de la nueva rama, y finalmente hacer click en "Create new branch: "rama-nueva" from "rama-vieja" </li>
+	![image](https://github.com/marceloaudisioClases/hibook/assets/64920999/2e79c21a-234a-4713-8b1c-b30233788bc0)
+</ol>
+
+<h3>Pasos para hacer pull request a dev</h3>
+<ol>
+	<li>Si hicieron ramas extra a partir de la rama feat en la que están trabajando, hagan pull request desde esas ramas para juntar los cambios en la rama feat. Recuerden no volver
+			a usar esa rama despues de hacer el merge(si queren pueden pedirnos para que la eliminemos).</li>
+	<li>Hacer un pull request desde dev hacia su rama donde estén trabajando y hacer merge de los cambios: <br>
+ ![image](https://github.com/marceloaudisioClases/hibook/assets/64920999/b8a70942-bcf5-4616-8425-d37f4f88dcd5) <br>
+		Esto es para evitar llevar conflictos hacia la rama dev.
+	</li>
+	<li>Resolver los conflictos si es que hay</li>
+	<li>Hacer el pull request hacia dev y esperar la aceptación de uno de los moderadores. Pueden asignar a alguien para que revise su pull request en la parte de "Reviewers": </li>
+	![image](https://github.com/marceloaudisioClases/hibook/assets/64920999/59cf9317-2185-42d6-b9f5-0f5cb9a3fdf1)
+
+</ol>
 
 <h3>Vistas --> application/views</h3>
 <hr>
