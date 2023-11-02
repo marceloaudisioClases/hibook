@@ -1,6 +1,6 @@
 <?php
 
-class puntuaciones_model extends CI_Model{
+class valoraciones_model extends CI_Model{
 
     protected $table= "valoraciones";
     protected $pk= "valoracion_id";
