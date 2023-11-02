@@ -9,7 +9,13 @@ No hacer push directo hacia las ramas main y dev, ni pull request hacia main. La
 Todos los nombres de métodos y variables son en español, salvo métodos base de los modelos (default_join, default_select)
 Consultar en qué rama hacer push en las tareas del ClickUp del proyecto.
 
-Si quieren trabajar en características cortas y puntuales pueden hacer ramificaciones partiendo de la rama en la que están
+Si quieren trabajar en características cortas y puntuales pueden hacer ramificaciones partiendo de la rama en la que están trabajano de la siguiente forma:
+<ol>
+	<li>Seleccionar la rama en la que están trabajando</li>
+	<li>Ir de nuevo al botón de seleccionar rama y hacer click</li>
+	<li>Escribir en el buscador el nombre de la nueva rama, y finalmente hacer click en "Create new branch: "rama-nueva" from "rama-vieja" </li>
+	![image](https://github.com/marceloaudisioClases/hibook/assets/64920999/2e79c21a-234a-4713-8b1c-b30233788bc0)
+</ol>
 
 <h3>Pasos para hacer pull request a dev</h3>
 <ol>
