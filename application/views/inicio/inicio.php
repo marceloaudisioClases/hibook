@@ -6,8 +6,6 @@
                 <div class="row row-deck row-cards">
                     <div class="col-4 offset-1">
 
-
-
                         <!-- Cuadro de busqueda -->
                         <div class="card">
                             <div class="card-body">
@@ -40,7 +38,12 @@
                                     <h4>Resultados</h4>
                                     <ul class="list-group">
                                         <?php foreach ($registros as $d) : ?>
-                                        <li class="list-group-item"><?php echo $d['nombre'];  ?></li>
+                                        <li class="list-group-item" id="<?php echo $d['usuario_id']; ?>">
+                                            <h4 style="float: left;"> <?php echo $d['nombre']; ?> </h4>
+                                            <a class="btn btn-icon" style="float: right;" href=<?php echo site_url('usuario/detalle_usuario?id='.$d['usuario_id']); ?>>
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+                                        </li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
