@@ -9,13 +9,13 @@
                         <div class="card">
                             <div class="card-body" style="height: 10rem">
                                 <h1>Perfil de <?php echo $usuario["nombre"]; ?></h1>
-                                <div class="row g-4 py-4">
+                                <div class="row py-4">
                                     <?php
                                     if(isset($caracteristicas)){
                                         foreach ($caracteristicas as $c){
                                             ?>
-                                        <div class="col-2 offset-1">
-                                            <p><b><?php echo $c->nombre; ?></b>
+                                        <div class="col-2">
+                                            <img src=<?php echo (base_url($c->icono)); ?> style="width:2em;"/><?php echo $c->nombre; ?> </img>
                                                 <?php
                                                 if(isset($estadisticas_usuario)){
                                                     foreach($estadisticas_usuario as $est_us){
@@ -42,16 +42,22 @@
                     <!-- Form enviar evaluacion -->
                     <div class="col-5 offset-1">
                         <div class="card">
-                            <div class="card-body" style="height: 20rem">
+                            <div class="card-body" style="height: 100%">
                                 <p class="card-title">Envía una Evaluación:</p>
-                                Amabilidad
-                                <div><input type="range" min="0" max="5" step="1" value="0"/></div>
-                                Compañerismo
-                                <div><input type="range" min="0" max="5" step="1" value="0"/></div>
-                                Pensamiento Critico
-                                <div><input type="range" min="0" max="5" step="1" value="0"/></div>
-                               
-                                <br><br><div align="center"><a href="#" class="btn btn-outline-info" id="btnConfirmarValoracion">Confirmar Valoración</a></div>
+                                <?php
+                                if(isset($caracteristicas)){
+                                    foreach ($caracteristicas as $c){
+                                        ?>
+                                        <div class="card-body">
+                                            <h4><?php echo ($c->nombre); ?></h4>
+                                            <img src=<?php echo (base_url($c->icono)); ?> style="width:2em;"/></img>
+                                            <input class="mx-1" type="range" name=<?php echo ($c->nombre); ?> min="0" max="5" step="1" value="0" style="width:60%;"/>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                                <br><div align="center"><a href="#" class="btn btn-outline-info" id="btnConfirmarValoracion">Confirmar Valoración</a></div>
                             </div>
                         </div>
                     </div>

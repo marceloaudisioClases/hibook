@@ -25,7 +25,8 @@ class Auth extends CI_Controller {
             $this->load->model('usuarios_model');
             $usuario= set_value('usuario');
             $password= set_value('password');
-            if ($u = $this->usuarios_model->login($usuario, $password)){
+            $u = $this->usuarios_model->login($usuario, $password);
+            if (isset($u['usuario_id']) == true){
                 $this->session->usuario_id= $u["usuario_id"];
                 $this->session->usuario= $u["usuario"];
                 $this->session->nombre= $u["nombre"];
@@ -34,8 +35,7 @@ class Auth extends CI_Controller {
                 redirect("inicio");
             }
             else {
-                $this->output->enable_profiler(true);
-                //$this->load->view("login/login");
+                $this->load->view("login/login");
             }
         }
     }
