@@ -55,9 +55,8 @@ class usuarios_model extends CI_Model{
         if ($res->num_rows()){
             $id= $res->row_array();
             return $this->obtener_por_id($id[$this->pk]);
-        } else {
-            return $this->db->error();
-        }
+        } 
+        return false;
     }
 
     public function listar_por_nombre($nombre =null){
