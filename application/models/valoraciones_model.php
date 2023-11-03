@@ -54,7 +54,7 @@ class valoraciones_model extends CI_Model{
             $query = $this->db->get();
     
             if ($query->num_rows() > 0) {
-                $result= $query->result();
+                $result= $query->result_array();
                 return $result;
             } 
         }
