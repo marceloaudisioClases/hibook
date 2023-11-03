@@ -26,9 +26,12 @@ class Usuario extends CI_Controller {
 		$this->load->model('caracteristicas_model');
 		$this->load->model('valoraciones_model');
 		$id_usuario = $this->input->get('id');
-		$data["estadisticas_usuario"] = $this->valoraciones_model->traer_estadisticas_usuario($id_usuario);
+		if ($aux_estad=$this->valoraciones_model->traer_estadisticas_usuario($id_usuario)){
+			$data["estadisticas_usuario"] = $aux_estad;
+		}
 		$data["caracteristicas"] = $this->caracteristicas_model->listar();
 		$data["usuario"] = $this->usuarios_model->obtener_por_id($id_usuario);
+		$this->load->section('navbar', 'navbar');
 		$this->load->view('usuario/usuario',$data);
 	}
 }

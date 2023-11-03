@@ -15,15 +15,13 @@
                                         foreach ($caracteristicas as $c){
                                             ?>
                                         <div class="col-2 offset-1">
-                                            <p><b><?php echo $c->nombre; ?></b> 
+                                            <p><b><?php echo $c->nombre; ?></b>
                                                 <?php
                                                 if(isset($estadisticas_usuario)){
                                                     foreach($estadisticas_usuario as $est_us){
-                                                        if ($est_us->nombre == $c->nombre){
-                                                            $promedio = $est_us->promedio_valoracion; 
+                                                        if ($est_us["nombre"] == $c->nombre){
+                                                            $promedio = $est_us["promedio_valoracion"]; 
                                                             echo $promedio;
-                                                        }else{
-                                                            echo "0.0";
                                                         }
                                                     }
                                                 }
