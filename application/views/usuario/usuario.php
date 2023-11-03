@@ -10,21 +10,30 @@
                             <div class="card-body" style="height: 10rem">
                                 <h1>Perfil de <?php echo $usuario["nombre"]; ?></h1>
                                 <div class="row g-4 py-4">
-                                    <div class="col-2 offset-1">
-                                        <p><b>Fellowship</b>: 3</p>
-                                    </div>
-                                    <div class="col-2">
-                                        <p>Critical-thinking: 4</p>
-                                    </div>
-                                    <div class="col-2">
-                                        <p><b>Leadership</b>: 4</p>
-                                    </div>
-                                    <div class="col-2">
-                                        <p>Teamwork: 4</p>
-                                    </div>
-                                    <div class="col-2">
-                                        <p><b>Teaching</b>: 4</p>
-                                    </div>
+                                    <?php
+                                    if(isset($caracteristicas)){
+                                        foreach ($caracteristicas as $c){
+                                            ?>
+                                        <div class="col-2 offset-1">
+                                            <p><b><?php echo $c->nombre; ?></b> 
+                                                <?php
+                                                if(isset($estadisticas_usuario)){
+                                                    foreach($estadisticas_usuario as $est_us){
+                                                        if ($est_us->nombre == $c->nombre){
+                                                            $promedio = $est_us->promedio_valoracion; 
+                                                            echo $promedio;
+                                                        }else{
+                                                            echo "0.0";
+                                                        }
+                                                    }
+                                                }
+                                                ?>
+                                            </p>
+                                        </div>
+                                        <?php
+                                        }
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
