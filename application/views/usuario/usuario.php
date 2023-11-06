@@ -64,7 +64,7 @@
                     <!-- Novedades usuario buscado -->
                     <div class="col-5">
                         <div class="card">
-                            <div class="card-body" style="height: 10rem">
+                            <div class="card-body" style="height: 100%">
                                 <p class="card-title">Novedades de: <?php echo $usuario["nombre"]; ?></p>
                                 <ul class="list-group list-group-flush" id="listaNovedades">
                                 <li class="list-group-item" id="novedad">Novedad1</li>
