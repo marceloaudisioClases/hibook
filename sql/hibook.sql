@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 31-10-2023 a las 12:21:31
--- Versión del servidor: 10.4.22-MariaDB
--- Versión de PHP: 7.4.27
+-- Tiempo de generación: 06-11-2023 a las 23:07:33
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,7 +33,7 @@ CREATE TABLE `comentarios` (
   `detalles` text NOT NULL,
   `estado` tinyint(4) NOT NULL DEFAULT 1,
   `fecha` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -48,7 +48,14 @@ CREATE TABLE `estadisticas` (
   `icono` text NOT NULL,
   `descripcion` text NOT NULL,
   `estado` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `estadisticas`
+--
+
+INSERT INTO `estadisticas` (`estadistica_id`, `nombre`, `color`, `icono`, `descripcion`, `estado`) VALUES
+(1, 'Social', 'rojo', 'dasdsa', 'un capo', 1);
 
 -- --------------------------------------------------------
 
@@ -61,7 +68,7 @@ CREATE TABLE `perfiles` (
   `usuario_id` int(10) UNSIGNED NOT NULL,
   `detalles` text NOT NULL,
   `estado` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -74,7 +81,7 @@ CREATE TABLE `roles` (
   `nombre` text NOT NULL,
   `predeterminado` tinyint(4) NOT NULL DEFAULT 0,
   `estado` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `roles`
@@ -99,7 +106,7 @@ CREATE TABLE `usuarios` (
   `rol_id` tinyint(4) NOT NULL,
   `estado` tinyint(4) NOT NULL DEFAULT 1,
   `avatar` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -128,7 +135,15 @@ CREATE TABLE `valoraciones` (
   `valorador_id` int(10) UNSIGNED NOT NULL,
   `fecha` datetime NOT NULL DEFAULT current_timestamp(),
   `estado` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `valoraciones`
+--
+
+INSERT INTO `valoraciones` (`valoracion_id`, `usuario_id`, `estadistica_id`, `valoracion`, `valorador_id`, `fecha`, `estado`) VALUES
+(1, 2, 1, 5, 1, '2023-11-02 15:18:49', 1),
+(2, 2, 1, 4, 5, '2023-11-02 16:01:31', 1);
 
 --
 -- Índices para tablas volcadas
@@ -172,7 +187,7 @@ ALTER TABLE `valoraciones`
 -- AUTO_INCREMENT de la tabla `estadisticas`
 --
 ALTER TABLE `estadisticas`
-  MODIFY `estadistica_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `estadistica_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
@@ -196,7 +211,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `valoraciones`
 --
 ALTER TABLE `valoraciones`
-  MODIFY `valoracion_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `valoracion_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
