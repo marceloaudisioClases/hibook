@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2023 a las 23:07:33
+-- Tiempo de generación: 03-11-2023 a las 18:27:55
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 7.4.33
 
@@ -55,7 +55,11 @@ CREATE TABLE `estadisticas` (
 --
 
 INSERT INTO `estadisticas` (`estadistica_id`, `nombre`, `color`, `icono`, `descripcion`, `estado`) VALUES
-(1, 'Social', 'rojo', 'dasdsa', 'un capo', 1);
+(1, 'Amabilidad', '', 'assets/caracteristicas_img/amabilidad.png', '', 1),
+(2, 'Trabajo en equipo', '', 'assets/caracteristicas_img/trabajo_en_equipo.png', '', 1),
+(3, 'Perseverancia', '', 'assets/caracteristicas_img/perseverancia.png', '', 1),
+(4, 'Liderazgo', '', 'assets/caracteristicas_img/liderazgo.png', '', 1),
+(5, 'Responsabilidad', '', 'assets/caracteristicas_img/responsabilidad.png', '', 1);
 
 -- --------------------------------------------------------
 
@@ -119,7 +123,8 @@ INSERT INTO `usuarios` (`usuario_id`, `usuario`, `nombre`, `apellido`, `email`, 
 (4, 'ezequiel', 'Ezequiel', 'De La Fuente', 'ezequieldlf@gmail.com', '1234', 1, 1, ''),
 (5, 'franco', 'Franco', 'Spatocco', 'fspatocco@gmail.com', '1234', 1, 1, ''),
 (6, 'belu', 'Belen', 'Giri', 'belen@gmail.com', '1234', 1, 1, ''),
-(7, 'abril', 'Abril', 'Aladro', 'abril@gmail.com', '1234', 1, 1, '');
+(7, 'abril', 'Abril', 'Aladro', 'abril@gmail.com', '1234', 1, 1, ''),
+(8, 'fer', 'Fernando', 'Cosentino', 'feracosentino@gmail.com', 'fer', 1, 1, 'https://th.bing.com/th/id/OIP.sTOP1cv95nOdxPTH-KLwsAHaHa?pid=ImgDet&rs=1');
 
 -- --------------------------------------------------------
 
@@ -142,6 +147,8 @@ CREATE TABLE `valoraciones` (
 --
 
 INSERT INTO `valoraciones` (`valoracion_id`, `usuario_id`, `estadistica_id`, `valoracion`, `valorador_id`, `fecha`, `estado`) VALUES
+(1, 1, 1, 4, 2, '2023-11-02 21:38:59', 1),
+(2, 1, 2, 3, 3, '2023-11-02 21:38:59', 1);
 (1, 2, 1, 5, 1, '2023-11-02 15:18:49', 1),
 (2, 2, 1, 4, 5, '2023-11-02 16:01:31', 1);
 
@@ -187,7 +194,7 @@ ALTER TABLE `valoraciones`
 -- AUTO_INCREMENT de la tabla `estadisticas`
 --
 ALTER TABLE `estadisticas`
-  MODIFY `estadistica_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `estadistica_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `perfiles`
@@ -205,7 +212,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `usuario_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `valoraciones`

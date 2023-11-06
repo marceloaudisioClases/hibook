@@ -19,7 +19,7 @@
         public function main(){
             $this->load->section('navbar', 'navbar');		
             $data['registros'] = $this->caracteristicas_model->listar();
-            $this->load->view('inicio/inicio', $data);
+            $this->load->view('caracteristicas/caracteristicas', $data);
         }
     }
 ?>
