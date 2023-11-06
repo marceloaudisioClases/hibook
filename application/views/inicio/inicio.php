@@ -56,38 +56,51 @@
                     <div class="col-6">
                         <div class="card py-3">
                             <div class="card-body">
-                                <?php if (isset($nombre_completo)) { ?> <h1 class="card-title"><?php echo $nombre_completo; ?></h1> <?php } ?>                                         
+                                <?php if (isset($datos_usuario['nombre_completo'])) { ?> <h1 class="card-title"><?php echo $datos_usuario['nombre_completo']; ?></h1> <?php } ?>                                         
                                 <h3>Estadisticas</h3>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-4">
-                                        Amabilidad
-                                    </div>
-                                    <div class="col-4 offset-4">
-                                        2.5
-                                        <span class="float-right"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i><i class="bi bi-star"></i></span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-4">
-                                        Compañerismo
-                                    </div>
-                                    <div class="col-4 offset-4">
-                                        4.0
-                                        <span class="float-right"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-4">
-                                        Pensamiento critico
-                                    </div>
-                                    <div class="col-4 offset-4">
-                                        3.5
-                                        <span class="float-right"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i></span>
-                                    </div>
-                                </div>
+
+                                <?php 
+                                    if ($estadisticas= $datos_usuario['estadisticas']){
+                                        foreach ($datos_usuario['estadisticas'] as $e){
+                                ?>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-4">          
+                                                <?php echo $e['nombre']; ?>
+                                            </div>
+                                            <div class="col-4 offset-4">
+                                                <span class="float-right">
+                                                <?php echo $e['promedio_valoracion']; 
+                                                    $i= 1;
+                                                    while ($i <= $e['promedio_valoracion']){
+                                                        ?>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <?php
+                                                        $i++;
+                                                    }
+                                                    if ($i !== $e['promedio_valoracion'] + 1){
+                                                        ?>
+                                                        <i class="bi bi-star-half"></i>                                                        
+                                                        <?php
+                                                        $i++;
+                                                    }
+                                                    while ($i <= 5){
+                                                        ?>
+                                                        <i class="bi bi-star"></i>
+                                                        <?php
+                                                        $i++;
+                                                    }
+                                                ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                <?php   }
+                                    } else {
+                                        ?>
+                                        <h3>No se han encontrado valoraciones</h3>
+                                        <?php
+                                    }
+                                ?>       
                             </div>
                         </div>
                     </div>

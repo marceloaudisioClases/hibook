@@ -33,7 +33,8 @@ class Auth extends CI_Controller {
                 redirect("inicio");
             }
             else {
-                $this->load->view("login/login");
+                $data['mensaje_error']= "Credenciales incorrectas. Intente de nuevo.";
+                $this->load->view("login/login", $data);
             }
         }
     }

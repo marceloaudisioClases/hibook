@@ -13,6 +13,7 @@ class usuarios_model extends CI_Model{
         $this->db->join("roles", $this->table.".rol_id= roles.rol_id", "inner");
         $this->db->join("perfiles", $this->table.".".$this->pk."= perfiles.usuario_id", "left");
     }
+    
 
     public function crear($data) {
         $this->db->insert($this->table, $data);
@@ -54,9 +55,8 @@ class usuarios_model extends CI_Model{
         if ($res->num_rows()){
             $id= $res->row_array();
             return $this->obtener_por_id($id[$this->pk]);
-        } else {
-            return $this->db->error();
-        }
+        } 
+        return false;
     }
 
     public function listar_por_nombre($nombre =null){
@@ -67,6 +67,29 @@ class usuarios_model extends CI_Model{
             $this->db->like('usuario', $nombre);
         }
         return $this->db->get($this->table)->result_array();
+    }
+
+    public function traer_stats_email($email){
+        
+        $this->db->select($this->table . ".email, ROUND(AVG(v.valoracion), 2) as promedio_valoracion");
+        $this->db->from($this->table);
+        $this->db->join("valoraciones as v", $this->table . "." . $this->pk . " = v.usuario_id", "inner");
+        $this->db->where($this->table . ".email", $email);
+        $this->db->group_by($this->table . "." . $this->pk);
+
+        $query = $this->db->get();
+
+        if ($query->num_rows() > 0) {
+            $result= $query->result();
+            return $result;
+            /*$this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($result));*/
+        } else {
+            return 0;
+        }
+
+       
     }
 
 }

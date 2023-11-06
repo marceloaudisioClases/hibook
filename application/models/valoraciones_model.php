@@ -1,6 +1,6 @@
 <?php
 
-class puntuaciones_model extends CI_Model{
+class valoraciones_model extends CI_Model{
 
     protected $table= "valoraciones";
     protected $pk= "valoracion_id";
@@ -41,6 +41,24 @@ class puntuaciones_model extends CI_Model{
         $this->db->where($this->pk, $rate_id);
         $this->db->delete($this->table);
         return $this->db->affected_rows();
+    }
+
+    public function traer_estadisticas_usuario($usuario_id= 0){
+        if ($usuario_id > 0){
+            $this->db->select("estadisticas.nombre, ROUND(AVG(". $this->table .".valoracion), 1) as promedio_valoracion");
+            $this->db->from($this->table);
+            $this->db->join("estadisticas", $this->table . ".estadistica_id = estadisticas.estadistica_id", "inner");
+            $this->db->where("valoraciones.usuario_id", $usuario_id);
+            $this->db->group_by("valoraciones.estadistica_id");
+    
+            $query = $this->db->get();
+    
+            if ($query->num_rows() > 0) {
+                $result= $query->result_array();
+                return $result;
+            } 
+        }
+        return false;
     }
 
 }
