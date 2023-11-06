@@ -59,85 +59,50 @@
                     <div class="col-6">
                         <div class="card py-3">
                             <div class="card-body">
-                                <?php if (isset($nombre_completo)) { ?> <h1 class="card-title"><?php echo $nombre_completo; ?></h1> <?php } ?>                                         
+                                <?php if (isset($datos_usuario['nombre_completo'])) { ?> <h1 class="card-title"><?php echo $datos_usuario['nombre_completo']; ?></h1> <?php } ?>                                         
                                 <h3>Estadisticas</h3>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-4">
-                                        Amabilidad
-                                    </div>
-                                    <div class="col-4 offset-4">
-                                    
-                                        2.5 
-                                        <?php for($i=0; $i<5;$i++){ ?>
-                                    <button class="switch-icon switch-icon-scale" data-bs-toggle="switch-icon">
-                                        <span class="switch-icon-a text-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
-                                        </svg>
-                                        </span>
-                                        <span class="switch-icon-b text-yellow">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" stroke-width="0" fill="currentColor"></path>
-                                        </svg>
-                                        </span>
-                                    </button>
-                                    <?php }?>
-                                        
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-4">
-                                        Compañerismo
-                                    </div>
-                                    <div class="col-4 offset-4">
-                                        4.0
-                                        <?php for($i=0; $i<5;$i++){ ?>
-                                    <button class="switch-icon switch-icon-scale" data-bs-toggle="switch-icon">
-                                        <span class="switch-icon-a text-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
-                                        </svg>
-                                        </span>
-                                        <span class="switch-icon-b text-yellow">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" stroke-width="0" fill="currentColor"></path>
-                                        </svg>
-                                        </span>
-                                    </button>
-                                    <?php }?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-4">
-                                        Pensamiento critico
-                                    </div>
-                                    <div class="col-4 offset-4">
-                                        3.5
-                                        <?php for($i=0; $i<5;$i++){ ?>
-                                    <button class="switch-icon switch-icon-scale" data-bs-toggle="switch-icon">
-                                        <span class="switch-icon-a text-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"></path>
-                                        </svg>
-                                        </span>
-                                        <span class="switch-icon-b text-yellow">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star-filled" width="24" height="24" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                        <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" stroke-width="0" fill="currentColor"></path>
-                                        </svg>
-                                        </span>
-                                    </button>
-                                    <?php }?>
-                                    </div>
-                                </div>
+                                <?php 
+                                    if ($estadisticas= $datos_usuario['estadisticas']){
+                                        foreach ($datos_usuario['estadisticas'] as $e){
+                                ?>
+                                        <hr>
+                                        <div class="row">
+                                            <div class="col-4">          
+                                                <?php echo $e['nombre']; ?>
+                                            </div>
+                                            <div class="col-4 offset-4">
+                                                <span class="float-right">
+                                                <?php echo $e['promedio_valoracion']; 
+                                                    $i= 1;
+                                                    while ($i <= $e['promedio_valoracion']){
+                                                        ?>
+                                                        <i class="bi bi-star-fill"></i>
+                                                        <?php
+                                                        $i++;
+                                                    }
+                                                    if ($i !== $e['promedio_valoracion'] + 1){
+                                                        ?>
+                                                        <i class="bi bi-star-half"></i>                                                        
+                                                        <?php
+                                                        $i++;
+                                                    }
+                                                    while ($i <= 5){
+                                                        ?>
+                                                        <i class="bi bi-star"></i>
+                                                        <?php
+                                                        $i++;
+                                                    }
+                                                ?>
+                                                </span>
+                                            </div>
+                                        </div>
+                                <?php   }
+                                    } else {
+                                        ?>
+                                        <h3>No se han encontrado valoraciones</h3>
+                                        <?php
+                                    }
+                                ?>       
                             </div>
                         </div>
                     </div>

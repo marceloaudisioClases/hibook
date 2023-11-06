@@ -149,6 +149,8 @@ CREATE TABLE `valoraciones` (
 INSERT INTO `valoraciones` (`valoracion_id`, `usuario_id`, `estadistica_id`, `valoracion`, `valorador_id`, `fecha`, `estado`) VALUES
 (1, 1, 1, 4, 2, '2023-11-02 21:38:59', 1),
 (2, 1, 2, 3, 3, '2023-11-02 21:38:59', 1);
+(1, 2, 1, 5, 1, '2023-11-02 15:18:49', 1),
+(2, 2, 1, 4, 5, '2023-11-02 16:01:31', 1);
 
 --
 -- Índices para tablas volcadas
