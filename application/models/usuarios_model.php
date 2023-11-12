@@ -76,11 +76,12 @@ class usuarios_model extends CI_Model{
         $this->db->join("valoraciones as v", $this->table . "." . $this->pk . " = v.usuario_id", "inner");
         $this->db->where($this->table . ".email", $email);
         $this->db->group_by($this->table . "." . $this->pk);
+        $this->db->limit(1);
 
         $query = $this->db->get();
 
         if ($query->num_rows() > 0) {
-            $result= $query->result();
+            $result= $query->result_row();
             return $result;
             /*$this->output
             ->set_content_type('application/json')
