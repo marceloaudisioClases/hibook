@@ -4,7 +4,7 @@
     {
         protected $table= "estadisticas";
         protected $pk= "estadistica_id";
-      
+
         public function default_select(){ 
             $this->db->select($this->table.".*");
         }   
@@ -38,7 +38,7 @@
         public function listar() 
         {
             $this->default_select();
-            return $this->db->get($this->table)->result();
+            return $this->db->get($this->table)->result_array();
         }
         
     }
