@@ -23,7 +23,7 @@
         <div class="navbar-nav flex-row order-md-last">
             <div class="nav-item">
                 <a href="<?= base_url(); ?>" class="nav-link d-flex lh-1 text-reset p-0">
-                    <img src="<?= $_SESSION["avatar"]; ?>" alt="Avatar" style="width: <?= $ancho_bar; ?>">
+                    <img src=<?php if($_SESSION["avatar"]!=""){echo $_SESSION["avatar"];}else{ echo base_url('assets/default_avatar.png');} ?> alt="Avatar" style="width: <?= $ancho_bar; ?>">
                     <div class="d-none d-xl-block ps-2">
                         <h4><?php if (isset($_SESSION["usuario"])){ ?><div> <?php echo $_SESSION["usuario"]; ?> </div> <?php }?></h4>
                     </div>

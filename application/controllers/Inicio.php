@@ -11,6 +11,8 @@ class Inicio extends CI_Controller {
 		$this->output->set_template('default');
 		$this->output->set_title('HiBook');					
 		$this->load->model('usuarios_model');
+		$this->load->model('caracteristicas_model');
+		$this->load->model('valoraciones_model');
 	}
 
 	public function index()
@@ -22,6 +24,10 @@ class Inicio extends CI_Controller {
 		$this->load->section('navbar', 'navbar');	
 		$data['registros'] = $this->usuarios_model->listar();
 		$data['nombre_completo']= $this->nombre_completo();
+		if ($aux_estad=$this->valoraciones_model->traer_estadisticas_usuario($_SESSION['usuario_id'])){
+			$data["estadisticas_usuario"] = $aux_estad;
+		}
+		$data["caracteristicas"] = $this->caracteristicas_model->listar();
         $this->load->view('inicio/inicio', $data);
     }
 
