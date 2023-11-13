@@ -54,7 +54,7 @@
                     <div class="col-6">
                         <div class="card py-3">
                             <div class="card-body">
-                                <?php if (isset($nombre_completo)) { ?> <h1 class="card-title"><?php echo $nombre_completo; ?></h1> <?php } ?>                                         
+                                <?php if (isset($datos_usuario['nombre_completo'])) { ?> <h1 class="card-title"><?php echo $datos_usuario['nombre_completo']; ?></h1> <?php } ?>                                         
                                 <h3>Estadisticas</h3>
                                 <?php
                                 $promedio = 0;

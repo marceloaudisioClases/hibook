@@ -9,7 +9,11 @@
                 <h2 class="h2 text-center mb-4">Inicia sesión con tu cuenta</h2>
                 <form action="<?php echo site_url('auth/ingresar'); ?>" method="post" autocomplete="off" novalidate>
                     <div class="mb-3">
-                        <?php if (isset($message)) { echo $message;} ?>
+                        <?php if (isset($mensaje_error)) { ?>
+                        <div class="alert alert-danger">
+                            <?php echo $mensaje_error; ?>
+                        </div>                             
+                        <?php } ?>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Usuario</label>
