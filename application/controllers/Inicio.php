@@ -23,13 +23,13 @@ class Inicio extends CI_Controller {
     public function main(){
 		$this->load->section('navbar', 'navbar');	
 		$data['registros'] = $this->usuarios_model->listar();
-		$data['nombre_completo']= $this->nombre_completo();
-		if ($aux_estad=$this->valoraciones_model->traer_estadisticas_usuario($_SESSION['usuario_id'])){
+		$data['nombre_completo']= $this->datos_usuario()["nombre_completo"];
+		if ($aux_estad=$this->datos_usuario()["estadisticas"]){
 			$data["estadisticas_usuario"] = $aux_estad;
 		}
 		$data["caracteristicas"] = $this->caracteristicas_model->listar();
 		$data['datos_usuario']= $this->datos_usuario();
-    $this->load->view('inicio/inicio', $data);
+		$this->load->view('inicio/inicio', $data);
     }
 
 	public function buscar_por_nombre() {
@@ -45,10 +45,8 @@ class Inicio extends CI_Controller {
 		if(isset($_SESSION['usuario_id'])){
 			$datos_usuario['estadisticas']=$this->valoraciones_model->traer_estadisticas_usuario($_SESSION['usuario_id']);
 		}
-
 		if (isset($_SESSION['apellido']) && isset($_SESSION['nombre']))
 			$datos_usuario['nombre_completo'] = $_SESSION['apellido'] . ' ' . $_SESSION['nombre'];
-
 		return $datos_usuario;
 	}
 }
